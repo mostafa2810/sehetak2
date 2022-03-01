@@ -15,15 +15,15 @@ class _FeedProductsState extends State<FeedProducts> {
   Widget build(BuildContext context) {
     final productsAttributes = Provider.of<Product>(context);
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(1.0),
       child: InkWell(
         onTap: () => Navigator.pushNamed(context, ProductDetails.routeName,
             arguments: productsAttributes.id),
         child: Container(
-          width: 250,
-          height: 290,
+          // width: 250,
+          height: 100,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(6),
+              borderRadius: BorderRadius.circular(0),
               color: Theme.of(context).backgroundColor),
           child: Column(
             children: [
@@ -35,7 +35,7 @@ class _FeedProductsState extends State<FeedProducts> {
                         borderRadius: BorderRadius.circular(2),
                         child: Container(
                           width: double.infinity,
-                          height: MediaQuery.of(context).size.height * 0.25,
+                          height: MediaQuery.of(context).size.height * 0.28,
                           child: Image.network(
                             productsAttributes.imageUrl,
                             //   fit: BoxFit.fitWidth,
@@ -63,7 +63,7 @@ class _FeedProductsState extends State<FeedProducts> {
               ),
               Container(
                 padding: EdgeInsets.only(left: 5),
-               margin: EdgeInsets.only(left: 5, bottom: 2, right: 3),
+                margin: EdgeInsets.only(left: 5, bottom: 2, right: 3),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

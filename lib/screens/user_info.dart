@@ -204,19 +204,19 @@ class _UserInfoState extends State<UserInfo> {
                         thickness: 1,
                         color: Colors.grey,
                       ),
-                      ListTileSwitch(
-                        value: themeChange.darkTheme,
-                        leading: Icon(Ionicons.md_moon),
-                        onChanged: (value) {
-                          setState(() {
-                            themeChange.darkTheme = value;
-                          });
-                        },
-                        visualDensity: VisualDensity.comfortable,
-                        switchType: SwitchType.cupertino,
-                        switchActiveColor: Colors.indigo,
-                        title: Text('Dark theme'),
-                      ),
+                      // ListTileSwitch(
+                      //   value: themeChange.darkTheme,
+                      //   leading: Icon(Ionicons.md_moon),
+                      //   onChanged: (value) {
+                      //     setState(() {
+                      //       themeChange.darkTheme = value;
+                      //     });
+                      //   },
+                      //   visualDensity: VisualDensity.comfortable,
+                      //   switchType: SwitchType.cupertino,
+                      //   switchActiveColor: Colors.indigo,
+                      //   title: Text('Dark theme'),
+                      // ),
                       Material(
                         color: Colors.transparent,
                         child: InkWell(
@@ -230,15 +230,15 @@ class _UserInfoState extends State<UserInfo> {
                                     return AlertDialog(
                                       title: Row(
                                         children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                right: 6.0),
-                                            child: Image.network(
-                                              'https://image.flaticon.com/icons/png/128/1828/1828304.png',
-                                              height: 20,
-                                              width: 20,
-                                            ),
-                                          ),
+                                          // Padding(
+                                          //   padding: const EdgeInsets.only(
+                                          //       right: 6.0),
+                                          //   child: Image.network(
+                                          //     'https://image.flaticon.com/icons/png/128/1828/1828304.png',
+                                          //     height: 20,
+                                          //     width: 20,
+                                          //   ),
+                                          // ),
                                           Padding(
                                             padding: const EdgeInsets.all(8.0),
                                             child: Text('Sign out'),

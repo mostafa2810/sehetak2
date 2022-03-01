@@ -28,17 +28,20 @@ class _FeedsState extends State<Feeds> {
   Widget build(BuildContext context) {
     final popular = ModalRoute.of(context).settings.arguments as String;
     final productsProvider = Provider.of<Products>(context);
-    
+
     List<Product> productsList = productsProvider.products;
     if (popular == 'popular') {
       productsList = productsProvider.popularProducts;
     }
     return Scaffold(
-        appBar: AppBar(
+      appBar: AppBar(
         backgroundColor: Theme.of(context).cardColor,
-        title: Text('Feeds',style: TextStyle(
-          color: Colors.black,
-        ),),
+        title: Text(
+          'Feeds',
+          style: TextStyle(
+            color: Colors.black,
+          ),
+        ),
         actions: [
           Consumer<FavsProvider>(
             builder: (_, favs, ch) => Badge(
@@ -86,19 +89,22 @@ class _FeedsState extends State<Feeds> {
       ),
       body: RefreshIndicator(
         onRefresh: _getProductsOnRefresh,
-        child: GridView.count(
-          physics: BouncingScrollPhysics(),
-          crossAxisCount: 2,
-          childAspectRatio: 240 / 420,
-          crossAxisSpacing: 1.0,
-          mainAxisSpacing: 1.0,
-          children: List.generate(productsList.length, (index) {
-            
-            return ChangeNotifierProvider.value(
-              value: productsList[index],
-              child: FeedProducts(),
-            );
-          }),
+        child: Container(
+          color: Colors.grey[300],
+          child: GridView.count(
+            physics: BouncingScrollPhysics(),
+            crossAxisCount: 2,
+            childAspectRatio: 1 / 1.78,
+          
+            crossAxisSpacing: 1.0,
+            mainAxisSpacing: 1.0,
+            children: List.generate(productsList.length, (index) {
+              return ChangeNotifierProvider.value(
+                value: productsList[index],
+                child: FeedProducts(),
+              );
+            }),
+          ),
         ),
       ),
 //         StaggeredGridView.countBuilder(

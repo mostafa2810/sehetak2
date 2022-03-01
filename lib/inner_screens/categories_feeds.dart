@@ -5,32 +5,38 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class CategoriesFeedsScreen extends StatelessWidget {
-  
   static const routeName = '/CategoriesFeedsScreen';
   @override
   Widget build(BuildContext context) {
     final productsProvider = Provider.of<Products>(context, listen: false);
     final categoryName = ModalRoute.of(context).settings.arguments as String;
     print(categoryName);
-    final productsList= productsProvider.findByCategory(categoryName);
+    final productsList = productsProvider.findByCategory(categoryName);
     return Scaffold(
-        body:productsList.isEmpty?Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text('No Products related to this Category',textAlign: TextAlign.center,),
-        ): GridView.count(
-          physics: BouncingScrollPhysics(),
-      crossAxisCount: 2,
-      childAspectRatio: 240 / 420,
-      crossAxisSpacing: 8,
-      mainAxisSpacing: 8,
-      children: List.generate(productsList.length, (index) {
-        return ChangeNotifierProvider.value(
-          value: productsList[index],
-          child: FeedProducts(
-          ),
-        );
-      }),
-    ),
+      body: productsList.isEmpty
+          ? Padding(
+              padding: const EdgeInsets.all(1.0),
+              child: Text(
+                'No Products related to this Category',
+                textAlign: TextAlign.center,
+              ),
+            )
+          : Container(
+              color: Colors.grey[300],
+              child: GridView.count(
+                physics: BouncingScrollPhysics(),
+                crossAxisCount: 2,
+                childAspectRatio: 1 / 1.78,
+                crossAxisSpacing: 1.0,
+                mainAxisSpacing: 1.0,
+                children: List.generate(productsList.length, (index) {
+                  return ChangeNotifierProvider.value(
+                    value: productsList[index],
+                    child: FeedProducts(),
+                  );
+                }),
+              ),
+            ),
 //         StaggeredGridView.countBuilder(
 //           padding: ,
 //   crossAxisCount: 6,
@@ -41,6 +47,6 @@ class CategoriesFeedsScreen extends StatelessWidget {
 //   mainAxisSpacing: 8.0,
 //   crossAxisSpacing: 6.0,
 // ),
-        );
+    );
   }
 }

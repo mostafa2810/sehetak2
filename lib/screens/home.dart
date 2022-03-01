@@ -132,7 +132,7 @@ class _HomeState extends State<Home> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
-                  color: Colors.grey[100],
+                  color: Colors.white,
                   child: Row(
                     children: [
                       Text(
